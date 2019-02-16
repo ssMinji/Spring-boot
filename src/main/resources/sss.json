@@ -1,0 +1,29 @@
+{
+  "query": {
+    "function_score": {
+      "query": {
+        "bool": {
+          "must": [
+            {
+              "term": {
+                "title": "안성"
+              }
+            }
+          ],
+          "must_not": [],
+          "should": []
+        }
+      },
+      "script_score": {
+        "script": {
+          "source": "doc['score'].value / 10 + _score"
+        }
+      }
+    }
+  },
+  "from": 0,
+  "size": 50,
+  "sort": [],
+  "aggs": {}
+}
+

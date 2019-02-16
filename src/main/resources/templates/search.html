@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css"
+      integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous"/>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js"
+        integrity="sha384-a5N7Y/aK3qNeh15eJKGWxsqtnX/wWdSZSKp+81YjTmS15nvnvxKHuzaWwXHDli+4"
+        crossorigin="anonymous"></script>
+
+<div class="container">
+    <form action="./search">
+        <div class="row">
+            <div class="input-group mb-12">
+                <input type="text" th:value="${query}" class="form-control" placeholder="Query" name="query" aria-describedby="button-addon1">
+                <div class="input-group-prepend">
+                    <button class="btn btn-outline-secondary" type="button" id="button-addon1">Search</button>
+                </div>
+            </div>
+        </div>
+    </form>
+    <div class="row">
+        <div class="col-md-6">
+            <h4>PageRank + BM25</h4>
+        </div>
+        <div class="col-md-6">
+            <h4>Wikipedia Search</h4>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card" th:each="item:${elastic}">
+                <div class="card-body">
+                    <a th:href="${'https://ko.wikipedia.org/wiki/'+item.title}" target="_blank"><h5 class="card-title" th:text="${item.title}"></h5></a>
+                    <p class="card-text" th:text="${item.shortenDescription}"></p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card" th:each="item:${wiki}">
+                <div class="card-body">
+                    <a th:href="${'https://ko.wikipedia.org/wiki/'+item.title}" target="_blank"><h5 class="card-title" th:text="${item.title}"></h5></a>
+                    <p class="card-text" th:text="${item.shortenDescription}"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

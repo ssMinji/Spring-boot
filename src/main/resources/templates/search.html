@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 
 <head>
 
@@ -26,7 +26,7 @@
 </head>
 <body id="page-top">
 
-  
+
   <div class="header_group">
     <div class="search_area" style="margin-top:20px">
     	<h1>
@@ -44,7 +44,7 @@
          </form>
      </div>
    </div>
-    
+
     <!-- Icons Grid -->
   <section class="features-icons bg-light">
     <div class="row">
@@ -61,6 +61,7 @@
                 <div class="card-body">
                     <a th:href="${'https://ko.wikipedia.org/wiki/'+item.title}" target="_blank"><h5 class="card-title" th:text="${item.title}"></h5></a>
                     <p class="card-text" th:text="${item.shortenDescription}"></p>
+                    <span th:each="s:${item.similars}"><span th:text="${s}"></span></span>
                 </div>
             </div>
         </div>
@@ -74,7 +75,7 @@
         </div>
     </div>
     </section>
-    
+
     <!-- Footer -->
   <footer class="footer bg-light">
     <div class="container">
@@ -121,6 +122,6 @@
       </div>
     </div>
   </footer>
-    
+
 </body>
 </html>

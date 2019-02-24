@@ -1,33 +1,57 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css"
-      integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous"/>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js"
-        integrity="sha384-a5N7Y/aK3qNeh15eJKGWxsqtnX/wWdSZSKp+81YjTmS15nvnvxKHuzaWwXHDli+4"
-        crossorigin="anonymous"></script>
+<html lang="en">
 
-<div class="container">
-    <form action="./search">
-        <div class="row">
-            <div class="input-group mb-12">
-                <input type="text" th:value="${query}" class="form-control" placeholder="Query" name="query" aria-describedby="button-addon1">
-                <div class="input-group-prepend">
-                    <button class="btn btn-outline-secondary" type="button" id="button-addon1">Search</button>
-                </div>
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Utopedia</title>
+
+  <!-- Font Awesome Icons -->
+  <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Merriweather+Sans:400,700" rel="stylesheet">
+  <link href='https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic' rel='stylesheet' type='text/css'>
+
+  <!-- Plugin CSS -->
+  <link href="vendor/magnific-popup/magnific-popup.css" rel="stylesheet">
+
+  <!-- Theme CSS - Includes Bootstrap -->
+  <link href="css/creative.min.css" rel="stylesheet">
+
+</head>
+<body id="page-top">
+
+  
+  <div class="header_group">
+    <div class="search_area" style="margin-top:20px">
+    	<h1>
+    	  <a id="logo" href="elastic.pslicore.io" class="logo_utopedia">Utopedia</a>
+    	</h1>
+         <form action="./search">
+         	<div class="form-row" >
+              <div class="col-12 col-md-9 mb-2 mb-md-0" style="width: 674px;">
+               <input type="text" th:value="${query}" class="form-control-lg" style="width: 500px;" placeholder="Query" name="query" aria-describedby="button-addon1">
+              </div>
+              <div class="col-12 col-md-3">
+              <button type="submit" class="btn btn-block btn-lg btn-primary">Search</button>
+              </div>
             </div>
-        </div>
-    </form>
+         </form>
+     </div>
+   </div>
+    
+    <!-- Icons Grid -->
+  <section class="features-icons bg-light">
     <div class="row">
-        <div class="col-md-6">
-            <h4>PageRank + BM25</h4>
+        <div class="col-md-6" style="margin-top:25px">
+            <h4>Utopedia Search</h4>
         </div>
-        <div class="col-md-6">
+        <div class="col-md-6" style="margin-top:25px">
             <h4>Wikipedia Search</h4>
         </div>
     </div>
@@ -49,6 +73,54 @@
             </div>
         </div>
     </div>
-</div>
+    </section>
+    
+    <!-- Footer -->
+  <footer class="footer bg-light">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6 h-100 text-center text-lg-left my-auto">
+          <ul class="list-inline mb-2">
+            <li class="list-inline-item">
+              <a href="#">About</a>
+            </li>
+            <li class="list-inline-item">&sdot;</li>
+            <li class="list-inline-item">
+              <a href="#">Contact</a>
+            </li>
+            <li class="list-inline-item">&sdot;</li>
+            <li class="list-inline-item">
+              <a href="#">Terms of Use</a>
+            </li>
+            <li class="list-inline-item">&sdot;</li>
+            <li class="list-inline-item">
+              <a href="#">Privacy Policy</a>
+            </li>
+          </ul>
+          <p class="text-muted small mb-4 mb-lg-0">&copy; Your Website 2019. All Rights Reserved.</p>
+        </div>
+        <div class="col-lg-6 h-100 text-center text-lg-right my-auto">
+          <ul class="list-inline mb-0">
+            <li class="list-inline-item mr-3">
+              <a href="#">
+                <i class="fab fa-facebook fa-2x fa-fw"></i>
+              </a>
+            </li>
+            <li class="list-inline-item mr-3">
+              <a href="#">
+                <i class="fab fa-twitter-square fa-2x fa-fw"></i>
+              </a>
+            </li>
+            <li class="list-inline-item">
+              <a href="#">
+                <i class="fab fa-instagram fa-2x fa-fw"></i>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </footer>
+    
 </body>
 </html>

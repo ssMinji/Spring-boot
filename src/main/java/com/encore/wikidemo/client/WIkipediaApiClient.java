@@ -19,7 +19,7 @@ public class WIkipediaApiClient {
     public List<SearchResult> search(String query) {
         String body = root.path("/w/api.php")
                 .queryParam("action", "opensearch")
-                .queryParam("redirets", "resolve")
+                .queryParam("redirects", "resolve")
                 .queryParam("search", query)
                 .request().get().readEntity(String.class);
         JsonArray arr = gson.fromJson(body, JsonArray.class);

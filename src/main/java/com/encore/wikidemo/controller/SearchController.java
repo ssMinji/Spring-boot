@@ -16,6 +16,11 @@ public class SearchController {
     private ElasticSearchClient elasticSearchClient;
     @Autowired
     private com.encore.wikidemo.client.WIkipediaApiClient wikiClient;
+    
+    @RequestMapping("/")
+    public String index() {
+        return "index";
+    }
 
     @RequestMapping("search")
     public String search(String query, Model model) throws IOException {

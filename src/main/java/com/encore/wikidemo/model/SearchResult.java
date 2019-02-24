@@ -24,7 +24,11 @@ public class SearchResult {
     }
 
     public String getShortenDescription() {
-        return StringUtils.split(getDescription(), ".")[0];
+    	if(!getDescription().isEmpty()) {
+    		return StringUtils.split(getDescription(), ".")[0];
+    	}else {
+    		return "No Description";
+    	}
     }
 
     public double getScore() {

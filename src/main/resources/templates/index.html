@@ -22,9 +22,26 @@
 
   <!-- Theme CSS - Includes Bootstrap -->
   <link href="css/creative.min.css" rel="stylesheet">
+  <style>
+    .row_footer{
+      text-align: center;
+    }
+    .container{
+      height: fit-content;
+    }
+    .masthead{
+      height: 80%;
+    }
+    #footer_id{
+      width: 100%;
+      text-align: center;
+      padding-top: 200px;
+    }
+    
+  </style>
 
 </head>
-<body id="page-top">
+<body id="page-top" style="height: 100%">
 
 
 <!-- Navigation -->
@@ -52,14 +69,14 @@
       </div>
     </div>
   </nav>
+
   
   <!-- Masthead -->
    <header class="masthead text-white text-center">
-    <div class="overlay"></div>
     <div class="container">
       <div class="row">
 		<div class="col-xl-9 mx-auto">
-		          <h1 class="mb-5">Build a landing page for your business or project and generate more leads!</h1>
+          <a href="http://elastic.pslicore.io/"><img src="../img/logo.JPG" style="margin-bottom: 20px"></a>
 		        </div>      
         <div class="col-md-10 col-lg-8 col-xl-7 mx-auto">
           <form action="./search">
@@ -75,36 +92,49 @@
         </div>
       </div>
     </div>
+    <div class="container">
+          <div class="row row_footer">
+              <div id="footer_id">
+                <a href="#">About</a><a href="#">&sdot;Contact</a><a href="#">&sdot;Terms of Use</a><a href="#">&sdot;Privacy Policy</a><br>
+                <span class="copyright" style="color:black">Copyright &copy; HyeonseoPark, MinjiSong, HaeinLee<br>2019-02-28</span>
+              </div>
+         </div>
+    </div>
   </header>
     
  
-    <!-- Footer -->
-  <footer class="footer bg-light text-center">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-6 h-100 text-center text-lg-left my-auto">
-          <ul class="list-inline mb-2">
-            <li class="list-inline-item">
-              <a href="#">About</a>
-            </li>
-            <li class="list-inline-item">&sdot;</li>
-            <li class="list-inline-item">
-              <a href="#">Contact</a>
-            </li>
-            <li class="list-inline-item">&sdot;</li>
-            <li class="list-inline-item">
-              <a href="#">Terms of Use</a>
-            </li>
-            <li class="list-inline-item">&sdot;</li>
-            <li class="list-inline-item">
-              <a href="#">Privacy Policy</a>
-            </li>
-          </ul>
-          <p class="text-muted small mb-4 mb-lg-0">&copy; Your Website 2019. All Rights Reserved.</p>
-        </div>
-      </div>
+    <!-- 
+    <footer>
+        <div class="container">
+          <div class="row row_footer">
+            
+              
+              <ul class="list-inline mb-2">
+                <li class="list-inline-item">
+                  <a href="#">About</a>
+                </li>
+                <li class="list-inline-item">&sdot;</li>
+                <li class="list-inline-item">
+                  <a href="#">Contact</a>
+                </li>
+                <li class="list-inline-item">&sdot;</li>
+                <li class="list-inline-item">
+                  <a href="#">Terms of Use</a>
+                </li>
+                <li class="list-inline-item">&sdot;</li>
+                <li class="list-inline-item">
+                  <a href="#">Privacy Policy</a>
+                </li>
+              </ul>
+              
+              <div id="footer_id">
+                <a href="#">About</a>&sdot;<a href="#">Contact</a>&sdot;<a href="#">Terms of Use</a><a href="#">&sdot;Privacy Policy</a><br>
+                Copyright &copy; HyeonseoPark, MinjiSong, HaeinLee<br>2019-02-28
+              </div>
+              
+         </div>
     </div>
   </footer>
-    
+  -->
 </body>
 </html>

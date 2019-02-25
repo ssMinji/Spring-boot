@@ -22,17 +22,88 @@
 
   <!-- Theme CSS - Includes Bootstrap -->
   <link href="css/creative.min.css" rel="stylesheet">
+  
+  <style>
+    .search_area > h1{
+    
+      display: inline-block;
+      width: fit-content;
+      float: left;
+      padding-right: 10px;
+    }
+    #searchForm{
+      width: fit-content;
+    }
 
+    #logo{
+      margin-left: 10%;
+      width:45%;
+    }
+    /* row_head */  
+    .row_head{
+      display: inline-block;
+      float: left;
+      width:100%;
+      text-align: center;
+      padding-bottom: 15px;
+    }
+
+    .row_head > h4{
+      display: inline-block;
+      width:fit-content;
+      float:left;
+    }
+    /* row_body */  
+    .row_body{
+      display: inline-block;
+      float: left;
+      width:100%;
+      height: fit-content;
+      text-align: center;
+    }
+    .col-md-6{
+      display: inline-block;
+      width: 45%;
+      vertical-align: top;
+    }
+
+    hr{
+      border: 1px solid orangered;
+    }
+  </style>
 </head>
 <body id="page-top">
 
-  
+  <section class="masthead text-white text-center">
+    <div class="container">
+      <div class="row">
+		<div class="col-xl-9 mx-auto">
+          <a href="http://elastic.pslicore.io/"><img src="../img/searchlogo.JPG" style="margin-bottom: 20px"></a>
+		        </div>      
+        <div class="col-md-10 col-lg-8 col-xl-7 mx-auto">
+          <form action="./search">
+            <div class="form-row" >
+              <div class="col-12 col-md-9 mb-2 mb-md-0" style="width: 674px;">
+               <input type="text" th:value="${query}" class="form-control-lg" style="width: 500px;" placeholder="검색어 입력" name="query" aria-describedby="button-addon1">
+              </div>
+              <div class="col-12 col-md-3">
+                <button type="submit" class="btn btn-block btn-lg btn-primary" onclick="location.href='search.html'">Search</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!--
   <div class="header_group">
     <div class="search_area" style="margin-top:20px">
     	<h1>
     	  <a id="logo" href="elastic.pslicore.io" class="logo_utopedia">Utopedia</a>
-    	</h1>
-         <form action="./search">
+      </h1>
+        
+         <form id="searchForm" action="./search">
          	<div class="form-row" >
               <div class="col-12 col-md-9 mb-2 mb-md-0" style="width: 674px;">
                <input type="text" th:value="${query}" class="form-control-lg" style="width: 500px;" placeholder="Query" name="query" aria-describedby="button-addon1">
@@ -44,18 +115,22 @@
          </form>
      </div>
    </div>
-    
+   -->
+
     <!-- Icons Grid -->
-  <section class="features-icons bg-light">
-    <div class="row">
-        <div class="col-md-6" style="margin-top:25px">
+  <section class="features-icons">
+    <br>
+    <hr>
+    <div class="row_head">
+        <div class="col-md-6">
             <h4>Utopedia Search</h4>
         </div>
-        <div class="col-md-6" style="margin-top:25px">
+        &nbsp;&nbsp;&nbsp;
+        <div class="col-md-6">
             <h4>Wikipedia Search</h4>
         </div>
     </div>
-    <div class="row">
+    <div class="row_body">
         <div class="col-md-6">
             <div class="card" th:each="item:${elastic}">
                 <div class="card-body">
@@ -64,6 +139,7 @@
                 </div>
             </div>
         </div>
+        &nbsp;&nbsp;
         <div class="col-md-6">
             <div class="card" th:each="item:${wiki}">
                 <div class="card-body">
@@ -76,7 +152,7 @@
     </section>
     
     <!-- Footer -->
-  <footer class="footer bg-light">
+  <footer class="footer">
     <div class="container">
       <div class="row">
         <div class="col-lg-6 h-100 text-center text-lg-left my-auto">

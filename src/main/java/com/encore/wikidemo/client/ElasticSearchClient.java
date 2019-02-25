@@ -9,6 +9,7 @@ import java.util.Map;
 
 import javax.annotation.PreDestroy;
 
+import com.encore.wikidemo.dao.SimilarDAO;
 import org.apache.http.HttpHost;
 import org.elasticsearch.action.search.SearchRequest;
 import org.elasticsearch.client.RequestOptions;
@@ -25,6 +26,7 @@ import org.elasticsearch.script.ScriptType;
 import org.elasticsearch.search.SearchHit;
 import org.elasticsearch.search.SearchHits;
 import org.elasticsearch.search.builder.SearchSourceBuilder;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Repository;
 
@@ -40,6 +42,8 @@ public class ElasticSearchClient {
     private RestHighLevelClient client;
     private String index;
     private Gson gson = new Gson();
+    @Autowired
+    private SimilarDAO similarDAO;
 
     public ElasticSearchClient(@Value("${elastic.host}") String host, @Value("${elastic.index.name}") String index) throws UnknownHostException {
         client = new RestHighLevelClient(RestClient.builder(new HttpHost(host, 9200)));
@@ -84,10 +88,12 @@ public class ElasticSearchClient {
         request.indices(index);
 
         SearchHits hits = client.search(request, RequestOptions.DEFAULT).getHits();
-        List<SearchResult> result = new ArrayList<>(); 
+        List<SearchResult> result = new ArrayList<>();
 
         for (SearchHit hit : hits) {
-            result.add(gson.fromJson(hit.getSourceAsString(), SearchResult.class));
+            SearchResult searchResult = gson.fromJson(hit.getSourceAsString(), SearchResult.class);
+            searchResult.setSimilars(similarDAO.getSimilar(searchResult.getTitle()));
+            result.add(searchResult);
         }
 
         return result;

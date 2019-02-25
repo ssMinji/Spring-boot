@@ -2,10 +2,21 @@ package com.encore.wikidemo.model;
 
 import org.apache.commons.lang3.StringUtils;
 
+import java.util.List;
+
 public class SearchResult {
     private String title;
     private String description;
     private double score;
+    private List<String> similars;
+
+    public List<String> getSimilars() {
+        return similars;
+    }
+
+    public void setSimilars(List<String> similars) {
+        this.similars = similars;
+    }
 
     public String getTitle() {
         return title;
